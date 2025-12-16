@@ -42,10 +42,11 @@ API_SECRET = os.getenv('APCA-API-SECRET-KEY')
 # =============================================================================
 
 # Underlying stocks to scan for options activity
-UNDERLYINGS = ['AAPL', 'TSLA', 'NVDA', 'SPY', 'QQQ', 'MSFT', 'AMZN', 'META', 'AMD', 'GOOGL']
-
+# UNDERLYINGS = ['AAPL', 'TSLA', 'NVDA', 'SPY', 'QQQ', 'MSFT', 'AMZN', 'META', 'AMD', 'GOOGL']
+#UNDERLYINGS = ['NVDA', 'AAPL', 'GOOG', 'GOOGL', 'MSFT', 'AMZN', 'META', 'AVGO', 'TSLA', 'BRK.B', 'MMM', 'ABT', 'ABBV', 'ACN', 'AEP', 'AXP', 'AIG', 'AMGN', 'T', 'BAC', 'BK', 'BAX', 'BIIB', 'BA', 'BMY', 'COF', 'CAT', 'CVX', 'CSCO', 'C', 'KO', 'CL', 'CMCSA', 'COP']
+UNDERLYINGS = ['C', 'F', 'MS', 'GS']
 # Lookback period
-LOOKBACK_DAYS = 5
+LOOKBACK_DAYS = 1
 
 # Sweep detection
 SWEEP_TIME_WINDOW = 60          # Seconds - trades within this window may be a sweep
