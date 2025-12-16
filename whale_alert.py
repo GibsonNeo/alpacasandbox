@@ -36,8 +36,8 @@ SYMBOLS_WHALE_FINDER = ['AAPL','TSLA', 'SPY', 'NVDA', 'MSFT']  # For whale finde
 SYMBOLS_LIVE_STREAM = ['AAPL', 'TSLA', 'NVDA', 'SPY', 'QQQ', 'MSFT', 'AMZN', 'META', 'GOOGL']  # For live alerts
 
 # Whale thresholds - a trade is a "whale" if it meets EITHER condition
-MIN_SHARES_WHALE_FINDER = 1000      # Minimum shares for whale finder
-MIN_VALUE_WHALE_FINDER = 5000000     # Minimum dollar value for whale finder ($)
+MIN_SHARES_WHALE_FINDER = 5000      # Minimum shares for whale finder
+MIN_VALUE_WHALE_FINDER = 1000000     # Minimum dollar value for whale finder ($)
 
 MIN_SHARES_LIVE = 5000              # Minimum shares for live alerts
 MIN_VALUE_LIVE = 1000000             # Minimum dollar value for live alerts ($)
