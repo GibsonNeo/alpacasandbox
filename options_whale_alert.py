@@ -51,6 +51,11 @@ LOOKBACK_DAYS = 5
 SWEEP_TIME_WINDOW = 60          # Seconds - trades within this window may be a sweep
 SWEEP_MIN_LEGS = 3              # Minimum number of trades to qualify as sweep
 
+# Moneyness Filter - Focus on OTM/ATM options (more telling for directional bets)
+# ITM options are often hedges, stock replacements, or structured trades - less informative
+# Set to ['OTM', 'ATM'] to exclude ITM, or ['OTM', 'ATM', 'ITM'] to include all
+MONEYNESS_FILTER = ['OTM']  # Only show OTM and ATM options
+
 # =============================================================================
 # TIERED THRESHOLDS BY MONEYNESS
 # These are industry-standard thresholds used by options flow trackers
@@ -399,6 +404,10 @@ def find_options_whales(underlyings: list, start_date: datetime,
                         itm_status = 'ATM'  # Default if no stock price
                         moneyness = 0
                     
+                    # Filter by moneyness (skip ITM if not in filter)
+                    if itm_status not in MONEYNESS_FILTER:
+                        continue
+                    
                     # Estimate vol/OI ratio (if we have OI data)
                     oi = chain_oi.get(contract_symbol, 0)
                     vol_oi_ratio = size / oi if oi > 0 else None
@@ -538,7 +547,9 @@ def print_whale_summary(whales: list):
         print("\nNo whale trades found with current thresholds.")
         return
     
-    print(f"\n🐋 Found {len(whales)} notable options trades!")
+    # Show moneyness filter
+    filter_str = '/'.join(MONEYNESS_FILTER)
+    print(f"\n🐋 Found {len(whales)} notable options trades! (Filter: {filter_str} only)")
     
     # =================================================================
     # TIER BREAKDOWN
