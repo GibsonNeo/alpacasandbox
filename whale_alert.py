@@ -32,7 +32,7 @@ API_SECRET = os.getenv('APCA-API-SECRET-KEY')
 
 # Symbols to monitor/scan
 SYMBOLS_HISTORICAL = ['AAPL', 'TSLA', 'SPY']           # For historical trades demo
-SYMBOLS_WHALE_FINDER = ['AAPL','TSLA', 'SPY', 'NVDA', 'MSFT']  # For whale finder
+SYMBOLS_WHALE_FINDER = ['AAPL','GOOGL', 'CLS','C', 'F', 'MS', 'GS','NVDA', 'MSFT']  # For whale finder
 SYMBOLS_LIVE_STREAM = ['AAPL', 'TSLA', 'NVDA', 'SPY', 'QQQ', 'MSFT', 'AMZN', 'META', 'GOOGL']  # For live alerts
 
 # Whale thresholds - a trade is a "whale" if it meets EITHER condition
